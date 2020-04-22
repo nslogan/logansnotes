@@ -1,0 +1,52 @@
+/* Still under active development */
+
+/*html { scroll-behavior: smooth; }*/
+
+table.archive-list tr td:first-child{padding-right:10px;}
+
+.pagehead {
+	position: relative;
+	padding-top: 24px;
+	padding-bottom: 24px;
+	margin-bottom: 24px;
+	border-bottom: 1px solid #e1e4e8;
+}
+
+.footer-icon {
+	color: #c6cbd1;
+	font-weight: bold;
+}
+
+.footer-icon:hover {
+	color: #959da5;
+	text-decoration: none;
+}
+
+.markdown-body img {
+	display: block;
+	max-width: 100%;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+/*.markdown-body figure {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: -webkit-fit-content;
+	width: -moz-fit-content;
+	width: fit-content;
+	max-width: 100%;
+	overflow: hidden;
+}
+
+.markdown-body figure img {
+	xxx max-width: inherit;
+}
+
+.markdown-body figcaption {
+	text-align: center;
+	font-size: 0.875em;
+	font-style: italic;
+	color: #6a737d;
+}*/

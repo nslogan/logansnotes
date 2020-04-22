@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	{% block head %}
+	<meta charset="utf-8">
+	<title>{% block title %}{% endblock %}</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	{# <link rel="manifest" href="site.webmanifest"> #}
+	{# <link rel="apple-touch-icon" href="icon.png"> #}
+	<!-- Place favicon.ico in the root directory -->
+
+	{# <link rel="stylesheet" href="css/normalize.css"> #}
+	{# <link rel="stylesheet" href="css/main.css"> #}
+	{# <link href="{{ SITEURL }}/theme/css/primer.css" rel="stylesheet" /> #}
+	<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+	<link href="{{ SITEURL }}/theme/css/highlight.css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/style.css" />
+
+	<script src="https://kit.fontawesome.com/327ca93845.js" crossorigin="anonymous"></script>
+	{% endblock head %}
+</head>
+
+<body>
+	{# <a id="top"></a> #}
+	<!--[if IE]>
+		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+	<![endif]-->
+
+	<div class="Header">
+		<div class="Header-item">
+			<a class="Header-link f4" href="{{ SITEURL }}/"><i class="far fa-file-alt mr-3"></i>{{ SITENAME }}</a>
+		</div>
+		<div class="Header-item Header-item--full">
+		{# TODO: Add logic to not include 'mr-3' class if there are no pages and this is the last MENUITEM #}
+			{# {% for title, link in MENUITEMS %}
+				<a class="Header-link mr-3" href="{{ link }}">{{ title }}</a>
+			{% endfor %} #}
+			{% if DISPLAY_PAGES_ON_MENU %}
+				{% for p in pages %}
+					{# {% if not loop.last %} mr-3{% endif %} #}
+					<a class="Header-link mr-3 {% if p == page %} border-bottom border-red{% endif %}" href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a>
+				{% endfor %}
+			{% endif %}
+		</div>
+		{# Social links #}
+		{% if SOCIAL %}
+		<div class="Header-item">
+			<nav>
+			{% for site, icon, link in SOCIAL %}
+				{# Need to map "name" to "fa icon" #}
+				<a class="Header-link{% if not loop.last %} mr-3{% endif %}" href="{{ link }}" target="_blank"><i class="{{ icon }}"></i></a>
+			</nav>
+			{% endfor %}
+		</div>
+		{% endif %}
+	</div>
+
+	<div class="container-lg clearfix px-3">
+		{% block content %}{% endblock %}
+	</div>
+
+	<div class="footer container-lg width-full clearfix px-3">
+		{# <div class="pt-6 pb-2 border-top border-gray-light"> #}
+		<div class="position-relative d-flex flex-justify-between pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light">
+			<ul class="list-style-none d-flex flex-wrap">
+				<li>&copy;2019-2020 Logan Smith</li>
+			</ul>
+			<a class="footer-icon f5" href="{{ SITEURL }}/"><i class="far fa-file-alt mr-2"></i>{{ SITENAME_SHORT }}</a>
+			<ul class="list-style-none d-flex flex-wrap">
+				<li><a href="#"><i class="fas fa-arrow-up mr-2"></i>Back to top</a></li>
+			</ul>
+		</div>
+		<div class="pb-6"></div>
+	</div>
+
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+
+{# Ok, so main page layout: #}
+{# Most recent article matching Eli's layout, but only the first 250 words or something; this has a "Continue reading" link under it #}
+{# Then a list of the most recent 20-30 articles, 'date: article title', with a "archives" link that has the full list, maybe by year and/or other categories, but we can worry about that page later since I don't have that many articles yet. #}
+
+{% extends "base.html" %}
+
+{% block title %}{{ SITENAME }}{% endblock %}
+
+{% block content %}
+<div class="col-12">
+{% if articles[0] %}
+	<div class="pagehead">
+		<h1><a class="text-inherit" href="{{ SITEURL }}/{{ articles[0].url }}">{{ articles[0].title }}</a></h1>
+		<span class="text-gray-light"><i class="far fa-calendar-alt pr-1"></i>{{ articles[0].date | strftime('%B %d, %Y at %H:%M') }}</span>
+	</div>
+
+	{# TODO: Replace with a summary if the article content is longer than N; this needs to be intelligent, in that it closes all tags appropriately. Not sure how to accomplish this yet. #}
+	<article class="markdown-body pb-4">
+		{# {{ articles[0].summary }} #}
+		{{ articles[0].content }}
+	</article>
+
+	{# <p><a href="{{ SITEURL }}/{{ articles[0].url }}">Continue reading</a></p> #}
+
+	<hr class="rule my-4" style="border-bottom-style: double; border-bottom-width: 2px"/>
+	
+	<h2 class="mb-1">Recent Posts</h2>
+	<table class="archive-list">
+	{% for article in articles[1:] | sort(reverse=true,attribute='date') %}
+		<tr>
+			<td>{{ article.date | strftime('%Y-%m-%d') }}:</td>
+			<td><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></td>
+		</tr>
+	{% else %}
+	<tr><td>No additional posts</td></tr>
+	{% endfor %}
+	</table>
+{% else %}
+	<div class="pagehead">
+		<h1>Go Forth and Conquer</a></h1>
+	</div>
+	<p>Imagine the greatness that could be here</p>
+{% endif %}
+</div>
+{% endblock %}
