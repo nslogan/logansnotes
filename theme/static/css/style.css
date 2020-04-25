@@ -29,6 +29,10 @@ table.archive-list tr td:first-child{padding-right:10px;}
 	margin-left: auto;
 }
 
+div[id^='WaveDrom_Display'] {
+	overflow: scroll;
+}
+
 /*.markdown-body figure {
 	display: block;
 	margin-left: auto;

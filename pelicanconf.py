@@ -2,10 +2,19 @@
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
 
+# ---
+
+# Set to help with plugin development
+# LOAD_CONTENT_CACHE = False
+
+# Add the plugin
+PLUGIN_PATHS = ['plugins']
+PLUGINS = ['lazyload']
+
+# ---
+
 AUTHOR = 'Logan Smith'
 SITENAME = "Logan's Notes"
-SITENAME_SHORT = "LN"
-SITEURL = ''
 THEME = 'theme'
 
 TIMEZONE = 'America/Los_Angeles'
@@ -29,17 +38,11 @@ ARCHIVES_SAVE_AS = ''
 AUTHORS_SAVE_AS = ''
 CATEGORIES_SAVE_AS = ''
 TAGS_SAVE_AS = ''
+FEED_SAVE_AS = ''
 
 DEFAULT_METADATA = {
 	'status': 'draft',
 }
-
-# Feed generation is usually not desired when developing
-FEED_ALL_ATOM = None
-CATEGORY_FEED_ATOM = None
-TRANSLATION_FEED_ATOM = None
-AUTHOR_FEED_ATOM = None
-AUTHOR_FEED_RSS = None
 
 MENUITEMS = []
 
@@ -67,7 +70,16 @@ MARKDOWN = {
 		'markdown.extensions.extra': {},
 		'markdown.extensions.meta': {},
 		'markdown.extensions.smarty': {},
+		'markdown.extensions.toc': {},
+		'markdown_checklist.extension' : {},
 		# 'markdown_captions' : {},
 	},
 	'output_format': 'html5',
 }
+
+# Feed generation is usually not desired when developing
+FEED_ALL_ATOM = None
+CATEGORY_FEED_ATOM = None
+TRANSLATION_FEED_ATOM = None
+AUTHOR_FEED_ATOM = None
+AUTHOR_FEED_RSS = None
