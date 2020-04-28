@@ -1,0 +1,56 @@
+# Workflow that builds and deploys the site to the webserver for logansnotes.com
+name: Deploy
+
+# 'master' should always represent a stable version of the site; all development
+# pushed to the remote (github) should be done on features branches (e.g.
+# feat/<name>) and testing should be done locally (i.e. via `make serve`).
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v1
+      with:
+        python-version: 3.6
+    # Cache pip files
+    #
+    # NOTE: v2 of cache should support multiple cache paths; for now I'm adding
+    # an action for both pip and pipenv cache
+    - uses: actions/cache@v1
+      with:
+        path:  ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('**/Pipfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+    # Cache pipenv files
+    # 
+    # NOTE: I haven't actually seen much of a speedup from
+    # the pipenv cache; I'm not sure if I've missed something or if most of the
+    # processing time is in the actually pipenv setup step
+    - uses: actions/cache@v1
+      with:
+        path: ~/.cache/pipenv
+        key: ${{ runner.os }}-pipenv-${{ hashFiles('**/Pipfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-pipenv-
+    - name: Install pip, pipenv, configure pipenv
+      run: |
+        python -m pip install --upgrade pip
+        pip install pipenv
+        pipenv sync
+    - name: Build the site
+      run: pipenv run pelican content -o site -s publishconf.py
+    - name: Deploy using rsync
+      uses: easingthemes/ssh-deploy@v2.1.1
+      env:
+          SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
+          # Updates are based on file hash, not time + size
+          ARGS: "-rlgoDzvc -i"
+          SOURCE: "site/"
+          REMOTE_HOST: ${{ secrets.DEPLOY_HOST }}
+          REMOTE_USER: ${{ secrets.DEPLOY_USER }}
+          TARGET: ${{ secrets.DEPLOY_PATH }}
