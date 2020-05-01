@@ -3,6 +3,20 @@
 
 <head>
 	{% block head %}
+
+	{# CookieConsent - GDPR Compliance #}
+	<script src="https://cmp.osano.com/16BZG1Rxg4f3F2KRV/1ce2b232-b20e-4eb7-8b2d-ec0b638442b0/osano.js"></script>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-55076821-2"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-55076821-2');
+	</script>
+
 	<meta charset="utf-8">
 	<title>{% block title %}{% endblock %}</title>
 	<meta name="description" content="">
