@@ -8,6 +8,7 @@ status: hidden
 
 ## Inbox
 
+- [ ] Migrate to [Cookie Consent self-hosted](https://github.com/osano/cookieconsent)
 - [ ] Dark mode (?)
 - [ ] Set Pygments highlighter to match ST3 (Monokai)
 - [ ] More advanced code listing

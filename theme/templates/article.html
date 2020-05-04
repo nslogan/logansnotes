@@ -13,7 +13,7 @@
 		{% if article.status == 'draft' %}
 			<div><span title="Draft" class="State State--green State--small mr-2"><i class="fas fa-drafting-compass mr-2" aria-hidden="true"></i>Draft</span></div>
 		{% endif %}
-		<div><span class="text-gray-light"><i class="far fa-calendar-alt pr-1"></i>{{ article.date | strftime('%B %d, %Y at %H:%M') }}</span></div>
+		<div><span class="text-gray-light"><i class="far fa-calendar-alt pr-1"></i>{{ article.date | strftime('%B %d, %Y') }}</span></div>
 		</div>
 	</div>
 	<article class="markdown-body">

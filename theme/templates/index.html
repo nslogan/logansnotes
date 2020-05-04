@@ -12,7 +12,7 @@
 {% if articles[0] %}
 	<div class="pagehead">
 		<h1><a class="text-inherit" href="{{ SITEURL }}/{{ articles[0].url }}">{{ articles[0].title }}</a></h1>
-		<span class="text-gray-light"><i class="far fa-calendar-alt pr-1"></i>{{ articles[0].date | strftime('%B %d, %Y at %H:%M') }}</span>
+		<span class="text-gray-light"><i class="far fa-calendar-alt pr-1"></i>{{ articles[0].date | strftime('%B %d, %Y') }}</span>
 	</div>
 
 	{# TODO: Replace with a summary if the article content is longer than N; this needs to be intelligent, in that it closes all tags appropriately. Not sure how to accomplish this yet. #}

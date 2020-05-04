@@ -2,6 +2,11 @@
 
 /*html { scroll-behavior: smooth; }*/
 
+/* Hide by default, will be shown on privacy.html*/
+.osano-cm-widget {
+	visibility: hidden;
+}
+
 table.archive-list tr td:first-child{padding-right:10px;}
 
 .pagehead {

@@ -3,14 +3,24 @@
 
 {% block title %}{{ SITENAME }} - {{ page.title|striptags }}{%endblock%}
 
-{# {% block head %}
+{% block head %}
 	{{ super() }}
 
-	{% import 'translations.html' as translations with context %}
+	{# NOTE: This is a hack until I implement a custom Osano script on my site #}
+	{% if page.privacy_page == 'true' %}
+	<style>
+		.osano-cm-widget {
+			visibility: visible;
+			opacity: 20%;
+		}
+	</style>
+	{% endif %}
+
+	{# {% import 'translations.html' as translations with context %}
 	{% if translations.entry_hreflang(page) %}
 		{{ translations.entry_hreflang(page) }}
-	{% endif %}
-{% endblock %} #}
+	{% endif %} #}
+{% endblock %}
 
 {% block content %}
 <div class="col-12">
