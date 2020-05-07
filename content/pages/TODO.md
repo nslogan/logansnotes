@@ -8,6 +8,7 @@ status: hidden
 
 ## Inbox
 
+- [ ] Add option to *not* have a caption for a photo but still have alt text (https://github.com/Evidlo/markdown_captions)
 - [ ] Optimize images for posts (most of them are way too large, coloring isn't always the best, yada yada)
 - [ ] Organize post static content (images, etc.) better than all of the pictures in just one folder
 - [ ] CSS / code highlighter that wraps lines based on indent (e.g. a line that's 3 tabs in will have its overflow 4 tabs in)

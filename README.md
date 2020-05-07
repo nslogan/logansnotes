@@ -1,5 +1,7 @@
 # Logan's Notes
 
+![Deploy](https://github.com/nslogan/logansnotes/workflows/Deploy/badge.svg?branch=master)
+
 Source for my personal website.
 
 Bear with me as I migrate from my old WordPress site to this new one.
