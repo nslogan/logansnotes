@@ -8,11 +8,10 @@
 {% block title %}{{ SITENAME }}{% endblock %}
 
 {% block content %}
-<div class="col-12">
 {% if articles[0] %}
 	<div class="pagehead">
 		<h1><a class="text-inherit" href="{{ SITEURL }}/{{ articles[0].url }}">{{ articles[0].title }}</a></h1>
-		<span class="text-gray-light"><i class="far fa-calendar-alt pr-1"></i>{{ articles[0].date | strftime('%B %d, %Y') }}</span>
+		<span class="text-gray-light"><i class="far fa-calendar-alt mr-2"></i>{{ articles[0].date | strftime('%B %d, %Y') }}</span>
 	</div>
 
 	{# TODO: Replace with a summary if the article content is longer than N; this needs to be intelligent, in that it closes all tags appropriately. Not sure how to accomplish this yet. #}
@@ -37,10 +36,10 @@
 	{% endfor %}
 	</table>
 {% else %}
+	{# Content to display when there are no published articles #}
 	<div class="pagehead">
-		<h1>Go Forth and Conquer</a></h1>
+		<h1>Go Forth and Conquer</h1>
 	</div>
 	<p>Imagine the greatness that could be here</p>
 {% endif %}
-</div>
 {% endblock %}

@@ -8,7 +8,11 @@ status: hidden
 
 ## Inbox
 
+- [ ] Optimize images for posts (most of them are way too large, coloring isn't always the best, yada yada)
+- [ ] Organize post static content (images, etc.) better than all of the pictures in just one folder
+- [ ] CSS / code highlighter that wraps lines based on indent (e.g. a line that's 3 tabs in will have its overflow 4 tabs in)
 - [ ] Migrate to [Cookie Consent self-hosted](https://github.com/osano/cookieconsent)
+- [ ] Write a privacy policy
 - [ ] Dark mode (?)
 - [ ] Set Pygments highlighter to match ST3 (Monokai)
 - [ ] More advanced code listing

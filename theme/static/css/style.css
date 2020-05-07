@@ -23,7 +23,7 @@ table.archive-list tr td:first-child{padding-right:10px;}
 }
 
 .footer-icon:hover {
-	color: #959da5;
+	color: #959da5; /* TODO: Replace with $gray-400 */
 	text-decoration: none;
 }
 
@@ -38,24 +38,22 @@ div[id^='WaveDrom_Display'] {
 	overflow: scroll;
 }
 
-/*.markdown-body figure {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	width: -webkit-fit-content;
-	width: -moz-fit-content;
-	width: fit-content;
+/* Centered caption that matches width of image */
+
+.markdown-body figure {
+	text-align: center;
+	color: #959da5; /* TODO: Replace with $gray-400 */
+	display: table;
 	max-width: 100%;
-	overflow: hidden;
+	margin: 0px auto 16px; /* TODO: SCSS with spacer-3 */
 }
 
 .markdown-body figure img {
-	xxx max-width: inherit;
+	/*max-width: 100%;*/ /* Redundant: Set by Primer (.markdown-body img) */
+	padding-bottom: 16px; /* TODO: SCSS with spacer-3 */
 }
 
-.markdown-body figcaption {
-	text-align: center;
-	font-size: 0.875em;
-	font-style: italic;
-	color: #6a737d;
-}*/
+.markdown-body figure figcaption {
+	display: table-caption;
+	caption-side: bottom;
+}

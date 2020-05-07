@@ -72,7 +72,7 @@ MARKDOWN = {
 		'markdown.extensions.smarty': {},
 		'markdown.extensions.toc': {},
 		'markdown_checklist.extension' : {},
-		# 'markdown_captions' : {},
+		'markdown_captions' : {},
 	},
 	'output_format': 'html5',
 }

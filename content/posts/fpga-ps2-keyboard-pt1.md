@@ -12,13 +12,9 @@ I set the trigger on the falling edge of the clock signal and powered the keyboa
 
 ![On power-up PS/2 keyboards enter the basic assurance test (BAT) state and, if successful, send 0xAA “BAT successful” to the host.]({static}/images/0-logic-0.png){: width="600px"}
 
-> On power-up PS/2 keyboards enter the basic assurance test (BAT) state and, if successful, send 0xAA “BAT successful” to the host.
-
 I restarted the capture and pressed “a”. In the capture below you can see the decoded messages in the lower-right panel -- both the “make” and “break” messages were captured.
 
-![On power-up PS/2 keyboards enter the basic assurance test (BAT) state and, if successful, send 0xAA “BAT successful” to the host.]({static}/images/0-logic-1.png){: width="600px"}
-
-> After assembling my PS/2 header I wired it up on my breadboard and pressed ‘a’ -- success!
+![After assembling my PS/2 header I wired it up on my breadboard and pressed ‘a’ -- success!]({static}/images/0-logic-1.png){: width="600px"}
 
 With the smoke test out of the way I moved onto my second target -- level shifting the clock and data signals to 3.3V to be able to interface with my miniSpartan6+ dev board. I didn’t have any level shifter ICs on hand but I did have some SOT-23 FETs. So, I put two of my IRLML2060TRPbF FETs on a SOT-23 breakout board, added a few pull-up resistors, and turned on analog capture on the logic analyzer.
 
