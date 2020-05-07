@@ -39,7 +39,7 @@ jobs:
           ${{ runner.os }}-pipenv-
     - name: Install pip, pipenv, configure pipenv
       run: |
-        python -m pip install --upgrade pip setuptools wheel
+        python -m pip install --upgrade wheel setuptools pip
         pip install pipenv
         pipenv sync
     - name: Build the site
