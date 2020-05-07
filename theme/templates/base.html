@@ -83,6 +83,19 @@
 	</div>
 
 	<div class="container-md p-responsive">
+		<div class="flash mt-3">
+			<script>
+				function dismiss(e) {
+					p = e.parentElement;
+					p.style.display = 'none';
+				}
+			</script>
+			<button class="flash-close js-flash-close" type="button" onclick="dismiss(this)">
+				<i class="fas fa-times"></i>
+			</button>
+			Hi there! Thanks for checking out my site. I'm in the process of migrating content from my old site, <a href="https://logansmith.org">logansmith.org</a>, to this site. Additionally, this site itself is under construction &ndash; in fact, you can view the source <a href="https://github.com/nslogan/logansnotes">here</a>! I have a lot of content in the works, be sure to check back in the next few weeks for posts on reverse engineering Nintendo 64 hardware, building this site, and lots of FPGA goodness.
+		</div>
+
 		{% block content %}{% endblock %}
 	</div>
 
