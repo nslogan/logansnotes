@@ -8,6 +8,8 @@ status: hidden
 
 ## Inbox
 
+- [ ] Rename 'theme' to 'themes' and add 'logansnotes' as the theme folder with the current 'theme' contents under it
+- [ ] Delete removed files (via [rsync](https://askubuntu.com/questions/476041/how-do-i-make-rsync-delete-files-that-have-been-deleted-from-the-source-folder) or otherwise)
 - [ ] Add option to *not* have a caption for a photo but still have alt text (https://github.com/Evidlo/markdown_captions)
 - [ ] Optimize images for posts (most of them are way too large, coloring isn't always the best, yada yada)
 - [ ] Organize post static content (images, etc.) better than all of the pictures in just one folder

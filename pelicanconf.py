@@ -48,11 +48,11 @@ MENUITEMS = []
 
 # Social widget
 SOCIAL = [
-	('github','fab fa-github','https://github.com/nslogan/'),
-	('linkedin','fab fa-linkedin-in','https://www.linkedin.com/in/logangsmith/'),
-	('twitter','fab fa-twitter','https://twitter.com/logangsmith'),
-	('instagram','fab fa-instagram','https://www.instagram.com/logangeoffsmith/'),
-	('strava','fab fa-strava','https://www.strava.com/athletes/31027767'),
+	('GitHub','fab fa-github','https://github.com/nslogan/'),
+	('LinkedIn','fab fa-linkedin-in','https://www.linkedin.com/in/logangsmith/'),
+	('Twitter','fab fa-twitter','https://twitter.com/logangsmith'),
+	('Instagram','fab fa-instagram','https://www.instagram.com/logangeoffsmith/'),
+	('Strava','fab fa-strava','https://www.strava.com/athletes/31027767'),
 ]
 
 DEFAULT_PAGINATION = 10

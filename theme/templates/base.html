@@ -75,7 +75,7 @@
 			<nav>
 			{% for site, icon, link in SOCIAL %}
 				{# Need to map "name" to "fa icon" #}
-				<a class="Header-link{% if not loop.last %} mr-3{% endif %}" href="{{ link }}" target="_blank"><i class="{{ icon }}"></i></a>
+				<a class="Header-link{% if not loop.last %} mr-3{% endif %} tooltipped tooltipped-sw" aria-label="{{ site }}" href="{{ link }}" target="_blank"><i class="{{ icon }}"></i></a>
 			{% endfor %}
 			</nav>
 		</div>
