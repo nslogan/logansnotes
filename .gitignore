@@ -1,3 +1,15 @@
 
+# Development files
+/dev
+
+# User-installed tools
+/tools/dart-sass
+
+# node.js
+node_modules/
+
 # Ignore generated website files
 /site
+
+# Text editor
+*.sublime-*

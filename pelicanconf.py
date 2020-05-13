@@ -15,7 +15,7 @@ PLUGINS = ['lazyload']
 
 AUTHOR = 'Logan Smith'
 SITENAME = "Logan's Notes"
-THEME = 'theme'
+THEME = 'themes/logansnotes'
 
 TIMEZONE = 'America/Los_Angeles'
 DEFAULT_LANG = 'en'
@@ -24,11 +24,11 @@ PATH = 'content'
 OUTPUT_PATH = 'site'
 ARTICLE_PATHS = ['posts']
 
-ARTICLE_URL = 'posts/{slug}.html'
-ARTICLE_SAVE_AS = 'posts/{slug}.html'
+ARTICLE_URL = 'posts/{slug}/'
+ARTICLE_SAVE_AS = 'posts/{slug}/index.html'
 
-DRAFT_URL = 'drafts/posts/{slug}.html'
-DRAFT_SAVE_AS = 'drafts/posts/{slug}.html'
+DRAFT_URL = 'drafts/posts/{slug}/'
+DRAFT_SAVE_AS = 'drafts/posts/{slug}/index.html'
 
 PAGE_URL = '{slug}/'
 PAGE_SAVE_AS = '{slug}/index.html'
