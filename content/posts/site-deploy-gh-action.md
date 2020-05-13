@@ -75,7 +75,7 @@ So, I switched to `easingthemes/ssh-deploy` which worked immediately. Below is t
 
 And here's a successful run of the workflow showing all of the steps.
 
-![]({static}/images/3-gh-action-0.png)
+![Successful run of workflow viewed on GitHub Actions page]({static}/images/3-gh-action-0.png)
 
 ### Tweaks
 
@@ -86,7 +86,7 @@ At this point, my site was being deployed on any push to my repository, so I dec
 
 #### `rsync` flags
 
-I am no rsync expert; in fact, I'm fairly new to using it. It's one of those tools that's always been sitting there, ready for use, but never really touched. So, I was happy to have an opportunity to finally break it out! I started with the default set of flags suggested by the ssh-deploy action, `-rltgoDzvO`. Here's a quick breakdown of those options, plus a link to the [rsync man page](https://linux.die.net/man/1/rsync).
+I am no rsync expert; in fact, I'm fairly new to using it. It's one of those tools that's always been sitting there, ready for use, but never really touched. So, I was happy to have an opportunity to finally break it out! I started with the default set of flags suggested by the ssh-deploy action, `-rltgoDzvO`. Here's a quick breakdown of those options, plus a link to the [rsync man page](http://man7.org/linux/man-pages/man1/rsync.1.html).
 
 Short | Long               | Description
 ------|--------------------|----------------------------------------
@@ -116,9 +116,9 @@ Example of output from the `-i` option:
 <f..T...... category/posts.html
 ```
 
-In trying to parse this output I came across this [useful post](http://andreafrancia.blogspot.com/2010/03/as-you-may-know-rsyncs-delete-options.html) on Andrea Francia's Blog. It's a bit outdated at this point, being posted in 2010, so if you come across something in the output you don't recognize be sure to reference the info below the "-i, --itemize-changes" option on the [rsync man page](https://linux.die.net/man/1/rsync). Even the manual mentions how confusing this output can be:
+In trying to parse this output I came across this [useful post](http://andreafrancia.blogspot.com/2010/03/as-you-may-know-rsyncs-delete-options.html) on Andrea Francia's Blog. It's a bit outdated at this point, being posted in 2010, so if you come across something in the output you don't recognize be sure to reference the info below the "-i, --itemize-changes" option on the [rsync man page](http://man7.org/linux/man-pages/man1/rsync.1.html). Even the manual mentions how confusing this output can be:
 
-> The lq%irq escape has a cryptic output that is 11 letters long.
+> The "%i" escape has a cryptic output that is 11 letters long.
 
 #### Cache
 
@@ -195,4 +195,4 @@ jobs:
 
 This workflow has been working nicely for a week or so now.
 
-![]({static}/images/3-gh-action-1.png)
+![Top-level view of deploy workflow on GitHub Actions page]({static}/images/3-gh-action-1.png)

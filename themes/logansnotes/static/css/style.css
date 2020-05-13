@@ -1,13 +1,23 @@
 /* Still under active development */
 
-/*html { scroll-behavior: smooth; }*/
-
 /* Hide by default, will be shown on privacy.html*/
 .osano-cm-widget {
 	visibility: hidden;
 }
 
-table.archive-list tr td:first-child{padding-right:10px;}
+table.archive-list tr td:first-child {
+	padding-right: 8px;
+	white-space: nowrap;
+	vertical-align: top;
+}
+
+table.archive-list tr td {
+	padding-bottom: 4px;
+}
+
+table.archive-list tr:last-child td {
+	padding-bottom: 0px;
+}
 
 .pagehead {
 	position: relative;
@@ -38,22 +48,12 @@ div[id^='WaveDrom_Display'] {
 	overflow: scroll;
 }
 
-/* Centered caption that matches width of image */
-
-.markdown-body figure {
+/* Simple caption using image followed immediately by italicized text (no empty
+ * newline between elements) */
+.markdown-body p img + em {
+	font-style: normal;
 	text-align: center;
-	color: #959da5; /* TODO: Replace with $gray-400 */
-	display: table;
-	max-width: 100%;
-	margin: 0px auto 16px; /* TODO: SCSS with spacer-3 */
-}
-
-.markdown-body figure img {
-	/*max-width: 100%;*/ /* Redundant: Set by Primer (.markdown-body img) */
-	padding-bottom: 16px; /* TODO: SCSS with spacer-3 */
-}
-
-.markdown-body figure figcaption {
-	display: table-caption;
-	caption-side: bottom;
+	display: block;
+	color: #959da5;
+	margin-top: 16px;
 }

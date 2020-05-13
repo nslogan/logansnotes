@@ -15,33 +15,47 @@ However, her car kept running, it just needed a bit of coolant every now and the
 
 The job in total took three weeks, a bit longer than I anticipated but twice I unexpectedly had to order parts (see the timing belt cover photo below). However, in the end, the car fired up and ran. I learned a lot in the process, and gained a decent amount of confidence in my auto tech abilities along the way.
 
-![Ready for teardown]({static}/images/1-civic-0.jpg)
+![Honda Civic with hood open]({static}/images/1-civic-0.jpg)
+*Ready for teardown*
 
-![Valve cover, distributor, fuel, and coolant connections removed]({static}/images/1-civic-1.jpg)
+![Engine head partially disassembled]({static}/images/1-civic-1.jpg)
+*Valve cover, distributor, fuel, and coolant connections removed*
 
-![Breaking the flywheel nut loose took an immense amount of force -- this is a 4-foot breaker bar being supported by a jackstand on a cinder block. I thought I sheared something when it finally came loose.]({static}/images/1-civic-2.jpg)
+![Ridiculous breaker bar setup]({static}/images/1-civic-2.jpg)
+*Breaking the flywheel nut loose took an immense amount of force -- this is a 4-foot breaker bar being supported by a jackstand on a cinder block. I thought I sheared something when it finally came loose.*
 
-![Head removed from block and ready for teardown. One of the more specific tools I purchased for this project was a [valve keeper remover and installer](https://www.amazon.com/dp/B0012S61IO).]({static}/images/1-civic-3.jpg)
+![Head removed from engine sitting on workbench]({static}/images/1-civic-3.jpg)
+*Head removed from block and ready for teardown. One of the more specific tools I purchased for this project was a [valve keeper remover and installer](https://www.amazon.com/dp/B0012S61IO).*
 
-![Yahtzee! See that oil stain in the otherwise perfectly clean cooling jacket? That’s the leak, this is the site where I’ve been slowly losing coolant.]({static}/images/1-civic-12.jpg)
+![Oil visible inside cooling jacket]({static}/images/1-civic-12.jpg)
+*Yahtzee! See that oil stain in the otherwise perfectly clean cooling jacket? That’s the leak, this is the site where I’ve been slowly losing coolant.*
 
-![Head fully disassembled in prep for a trip to the machine shop. The gray aerosol can is a gasket remover spray; it does its job, but I highly suggest buying the proper gloves (your standard latex shop gloves melt pretty much instantly). I'm not saying that's what I did, but it is what you should do...]({static}/images/1-civic-15.jpg)
+![Fully disassembled head]({static}/images/1-civic-15.jpg)
+*Head fully disassembled in prep for a trip to the machine shop. The gray aerosol can is a gasket remover spray; it does its job, but I highly suggest buying the proper gloves (your standard latex shop gloves melt pretty much instantly). I'm not saying that's what I did, but it is what you should do...*
 
-![Head back from the machine shop! The shop confirmed that the head was warped (but the cam channel was straight). They resurfaced right up to the service manual max but the machinist has done so many Civic heads he was fully confident I would be fine.]({static}/images/1-civic-4.jpg)
+![Head just after return from machine shop]({static}/images/1-civic-4.jpg)
+*Head back from the machine shop! The shop confirmed that the head was warped (but the cam channel was straight). They resurfaced right up to the service manual max but the machinist has done so many Civic heads he was fully confident I would be fine.*
 
-![Things got a little warm. This is the timing belt cover that sits between the head and the belt. There’s also an outer belt cover but it was not damaged.]({static}/images/1-civic-5.jpg)
+![Comparison between new part and heat damaged part]({static}/images/1-civic-5.jpg)
+*Things got a little warm. This is the timing belt cover that sits between the head and the belt. There’s also an outer belt cover but it was not damaged.*
 
-![While I had the head apart I lapped all of the valves -- you can see the difference between the exhaust (closer) and intake (further) valve seats. I used a [valve lapping tool](https://www.autozone.com/test-scan-and-specialty-tools/valve-lapper-tool/oemtools-large-valve-lapper-tool/531954_0_0) and [valve grinding compound](https://shop.advanceautoparts.com/p/permatex-valve-grinding-compound-15-oz-80036/7160108-P).]({static}/images/1-civic-6.jpg)
+![Comparison of pre- and post-valve lapping on valve seat]({static}/images/1-civic-6.jpg)
+*While I had the head apart I lapped all of the valves -- you can see the difference between the exhaust (closer) and intake (further) valve seats. I used a [valve lapping tool](https://www.autozone.com/test-scan-and-specialty-tools/valve-lapper-tool/oemtools-large-valve-lapper-tool/531954_0_0) and [valve grinding compound](https://shop.advanceautoparts.com/p/permatex-valve-grinding-compound-15-oz-80036/7160108-P).*
 
-![Another comparison of pre/post valve lapping -- the closer valves have been lapped.]({static}/images/1-civic-7.jpg)
+![Comparison of pre- and post-valve lapping on valve lip]({static}/images/1-civic-7.jpg)
+*Another comparison of pre/post valve lapping -- the closer valves have been lapped.*
 
-![Valvetrain almost fully reassembled. All of the valves are in, the cam is back in, just the rockers need to be reinstalled. Shout out to [Permatex Ultra Slick Engine Assembly Lube](https://www.amazon.com/dp/B000HBNVSK) (not sponsored, just a big fan).]({static}/images/1-civic-11.jpg)
+![Head reassembled]({static}/images/1-civic-11.jpg)
+*Valvetrain almost fully reassembled. All of the valves are in, the cam is back in, just the rockers need to be reinstalled. Shout out to [Permatex Ultra Slick Engine Assembly Lube](https://www.amazon.com/dp/B000HBNVSK) (not sponsored, just a big fan).*
 
-![Block surface prepped for a new head gasket. Also note how clean the intake manifold surface is. Blood, sweat, and mild chemical burns right there.]({static}/images/1-civic-9.jpg)
+![Surface-prepped block and intake manifold]({static}/images/1-civic-9.jpg)
+*Block surface prepped for a new head gasket. Also note how clean the intake manifold surface is. Blood, sweat, and mild chemical burns right there.*
 
-![In pursuit of the very clean intake manifold surface in the previous photo I lost a part of the intake gasket down the block. After the initial panic subsided, I looked around my shop for what I could cobble together to retrieve the gasket. In the end the winner was a 1/4 socket extension, a socket of just the right size to hold the alligator clip from my soldering station helping hands, and a piece of wire to actuate the clip.]({static}/images/1-civic-16.jpg)
+![Retrieved piece of intake manifold gasket]({static}/images/1-civic-16.jpg)
+*In pursuit of the very clean intake manifold surface in the previous photo I lost a part of the intake gasket down the block. After the initial panic subsided, I looked around my shop for what I could cobble together to retrieve the gasket. In the end the winner was a 1/4 socket extension, a socket of just the right size to hold the alligator clip from my soldering station helping hands, and a piece of wire to actuate the clip.*
 
-![Head reinstalled! A bit hard to see but I also took this opportunity to replace the intake and exhaust manifold studs.]({static}/images/1-civic-10.jpg)
+![Head reinstalled]({static}/images/1-civic-10.jpg)
+*Head reinstalled! A bit hard to see but I also took this opportunity to replace the intake and exhaust manifold studs.*
 
 All in all, I replaced:
 
@@ -63,7 +77,8 @@ Other work that was done:
 - Valve lapping
 - Rocker assembly cleaned and lubricated
 
-![Here is the face of a man in disbelief this vehicle didn't immediately throw a rod on startup.]({static}/images/1-civic-logan.png)
+![Dumbfounded looking Logan]({static}/images/1-civic-logan.png)
+*Here is the face of a man in disbelief this vehicle didn't immediately throw a rod on startup.*
 
 My friend Ron summarized this project best:
 
