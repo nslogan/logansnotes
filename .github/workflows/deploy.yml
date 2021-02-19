@@ -24,7 +24,7 @@ jobs:
     # NOTE: Maybe run `zola --version` for posterity
 
     - name: Build the site
-      run: zola build --base-url "dev.logansnotes.com"
+      run: zola build --base-url "https://dev.logansnotes.com"
 
     - name: Deploy using rsync
       uses: easingthemes/ssh-deploy@v2.1.1
