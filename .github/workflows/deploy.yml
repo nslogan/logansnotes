@@ -1,0 +1,38 @@
+# Workflow that builds and deploys the site to the webserver for logansnotes.com
+name: Deploy
+
+# TODO:
+# - [ ] Dockerize build environment so I can share a common docker container for local and remote builds
+# - [ ] Add a "development" deploy target at dev.SITEURL so I can push live previews for myself (this will also need to be tied into the `make build` target so that the base_url is correct)
+# - [ ] Use GH environments for ^ (?)
+
+# 'master' should always represent a stable version of the site; all development
+# pushed to the remote (github) should be done on features branches (e.g.
+# feat/<name>) and testing should be done locally (i.e. via `make serve`).
+on:
+  push:
+    branches: [ dev/* ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Install zola
+      run: sudo snap install --edge zola
+    # NOTE: Maybe run `zola --version` for posterity
+
+    - name: Build the site
+      run: zola build --base-url "dev.${{ secrets.DEPLOY_PATH }}"
+
+    - name: Deploy using rsync
+      uses: easingthemes/ssh-deploy@v2.1.1
+      env:
+          SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
+          # Updates are based on file hash, not time + size
+          ARGS: "-rlgoDzvc -i --delete --exclude-from=.rsync.rules"
+          SOURCE: "public/"
+          REMOTE_HOST: ${{ secrets.DEPLOY_HOST }}
+          REMOTE_USER: ${{ secrets.DEPLOY_USER }}
+          TARGET: "dev.${{ secrets.DEPLOY_PATH }}"

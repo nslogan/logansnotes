@@ -40,3 +40,11 @@ serve:
 .PHONY: stop-serve
 stop-serve:
 	docker stop ${server_cont_name}
+
+# #-------------------------------------------------------------------------------
+# # Github targets; right now GH actions not using custom docker image so this calls zola natively
+# #
+
+# .PHONY: gh-build
+# gh-build:
+# 	zola build
