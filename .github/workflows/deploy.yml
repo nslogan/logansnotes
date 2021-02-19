@@ -24,7 +24,7 @@ jobs:
     # NOTE: Maybe run `zola --version` for posterity
 
     - name: Build the site
-      run: zola build --base-url "dev.${{ secrets.DEPLOY_PATH }}"
+      run: zola build --base-url "dev.logansnotes.com"
 
     - name: Deploy using rsync
       uses: easingthemes/ssh-deploy@v2.1.1
@@ -35,4 +35,4 @@ jobs:
           SOURCE: "public/"
           REMOTE_HOST: ${{ secrets.DEPLOY_HOST }}
           REMOTE_USER: ${{ secrets.DEPLOY_USER }}
-          TARGET: "dev.${{ secrets.DEPLOY_PATH }}"
+          TARGET: ${{ secrets.DEV_DEPLOY_PATH }}
