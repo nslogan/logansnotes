@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}{{ config.title }}{% endblock %}
+
+{% block content %}
+
+{# TODO: Add "if no articles" block #}
+
+{% set article = paginator.pages[0] %}
+
+<div class="pagehead">
+	<h1><a class="text-inherit" href="{{ article.permalink }}">{{ article.title }}</a></h1>
+	<span class="text-gray-light"><i class="far fa-calendar-alt mr-2"></i>{{ article.date | date(format="%B %d, %Y") }}</span>
+</div>
+
+{# TODO: Handle "summary" being empty #}
+<article class="markdown-body pb-4">
+	{{ article.summary | safe }}
+</article>
+
+<p><a href="{{ article.permalink }}">Continue reading</a></p>
+
+<hr class="rule my-4" style="border-bottom-style: double; border-bottom-width: 2px"/>
+	
+<h2 class="mb-1">Recent Posts</h2>
+
+<table class="archive-list">
+{% for article in paginator.pages | slice(start=1) %}
+	<tr>
+		<td>{{ article.date | date(format="%B %d, %Y") }}:</td>
+		<td><a href="{{ article.permalink }}">{{ article.title }}</a></td>
+	</tr>
+{% else %}
+<tr><td>No additional posts</td></tr>
+{% endfor %}
+</table>
+
+{% endblock content %}

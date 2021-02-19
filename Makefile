@@ -1,84 +1,50 @@
-PY?=python3
-PELICAN?=pipenv run pelican
-PELICANOPTS=
+# Makefile preamble
+MAKEFLAGS += --warn-undefined-variables
+SHELL := bash
+# .SHELLFLAGS := -eu -o pipefail -c
+.DEFAULT_GOAL := all
+.DELETE_ON_ERROR:
+.SUFFIXES:
 
-BASEDIR=$(CURDIR)
-INPUTDIR=$(BASEDIR)/content
-OUTPUTDIR=$(BASEDIR)/site
-CONFFILE=$(BASEDIR)/pelicanconf.py
-PUBLISHCONF=$(BASEDIR)/publishconf.py
+# ------------------------------------------------------------------------------
 
-# FTP_HOST=localhost
-# FTP_USER=anonymous
-FTP_TARGET_DIR=/
+project_name     := logansnotes-zola
+
+docker_image     := "balthek/zola:0.13.0"
+server_cont_name := "${project_name}-server"
+
+http_port   := 8080
+reload_port := 1024
+
+serve_flags := --drafts
+
+USER := $(shell id -u)
+GROUP := $(shell id -g)
+
+.PHONY: all
+all: xxx
 
 
-DEBUG ?= 0
-ifeq ($(DEBUG), 1)
-	PELICANOPTS += -D
-endif
+.PHONY: init
+init:
+	docker run -it --rm -u "${USER}:${GROUP}" -v ${PWD}:/app --workdir /app ${docker_image} init
 
-RELATIVE ?= 0
-ifeq ($(RELATIVE), 1)
-	PELICANOPTS += --relative-urls
-endif
+.PHONY: build
+build:
+	docker run -u "${USER}:${GROUP}" -v ${PWD}:/app --workdir /app ${docker_image} build
 
-help:
-	@echo 'Makefile for a pelican Web site                                           '
-	@echo '                                                                          '
-	@echo 'Usage:                                                                    '
-	@echo '   make html                           (re)generate the web site          '
-	@echo '   make clean                          remove the generated files         '
-	@echo '   make regenerate                     regenerate files upon modification '
-	@echo '   make publish                        generate using production settings '
-	@echo '   make serve [PORT=8000]              serve site at http://localhost:8000'
-	@echo '   make serve-global [SERVER=0.0.0.0]  serve (as root) to $(SERVER):80    '
-	@echo '   make devserver [PORT=8000]          serve and regenerate together      '
-	@echo '   make ssh_upload                     upload the web site via SSH        '
-	@echo '   make rsync_upload                   upload the web site via rsync+ssh  '
-	@echo '   make ftp_upload                     upload the web site via FTP        '
-	@echo '                                                                          '
-	@echo 'Set the DEBUG variable to 1 to enable debugging, e.g. make DEBUG=1 html   '
-	@echo 'Set the RELATIVE variable to 1 to enable relative urls                    '
-	@echo '                                                                          '
-
-html:
-	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
-
-clean:
-	[ ! -d $(OUTPUTDIR) ] || rm -rf $(OUTPUTDIR)
-
-regenerate:
-	$(PELICAN) -r $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
-
+.PHONY: serve
 serve:
-ifdef PORT
-	$(PELICAN) -l $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS) -p $(PORT)
-else
-	$(PELICAN) -l $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
-endif
+	docker run -d --rm -u "${USER}:${GROUP}" -v ${PWD}:/app --workdir /app -p ${http_port}:${http_port} -p ${reload_port}:${reload_port} --name ${server_cont_name} ${docker_image} serve --interface 0.0.0.0 --port ${http_port} --base-url localhost ${serve_flags}
 
-serve-global:
-ifdef SERVER
-	$(PELICAN) -l $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS) -p $(PORT) -b $(SERVER)
-else
-	$(PELICAN) -l $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS) -p $(PORT) -b 0.0.0.0
-endif
+.PHONY: stop-serve
+stop-serve:
+	docker stop ${server_cont_name}
 
+# #-------------------------------------------------------------------------------
+# # Github targets; right now GH actions not using custom docker image so this calls zola natively
+# #
 
-devserver:
-ifdef PORT
-	$(PELICAN) -lr $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS) -p $(PORT)
-else
-	$(PELICAN) -lr $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
-endif
-
-publish:
-	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS)
-
-# https://lftp.yar.ru/lftp-man.html
-ftp_upload: publish
-	lftp ftp://$(FTP_USER)@$(FTP_HOST) -e "mirror -R $(OUTPUTDIR) $(FTP_TARGET_DIR) ; quit"
-
-
-.PHONY: html help clean regenerate serve serve-global devserver publish ftp_upload
+# .PHONY: gh-build
+# gh-build:
+# 	zola build
