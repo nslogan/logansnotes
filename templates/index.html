@@ -13,17 +13,21 @@
 	<span class="text-gray-light"><i class="far fa-calendar-alt mr-2"></i>{{ article.date | date(format="%B %d, %Y") }}</span>
 </div>
 
-{# TODO: Handle "summary" being empty #}
 <article class="markdown-body pb-4">
+{%- if article.summary %}
 	{{ article.summary | safe }}
+	<p><a href="{{ article.permalink }}">Continue reading</a></p>
+{%- else %}
+	{{ article.content | safe }}
+{%- endif %}
 </article>
 
-<p><a href="{{ article.permalink }}">Continue reading</a></p>
 
 <hr class="rule my-4" style="border-bottom-style: double; border-bottom-width: 2px"/>
 	
 <h2 class="mb-1">Recent Posts</h2>
 
+{# TODO: Add "if article count == 1" block #}
 <table class="archive-list">
 {% for article in paginator.pages | slice(start=1) %}
 	<tr>
