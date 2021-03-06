@@ -14,8 +14,14 @@ TODO
 - [ ] Remove origin/dev/zola-migration
 - [ ] Start using GH PR (will automate branch removal, tie it to the dev.logansnotes.com deploy action TBD)
 - [ ] Handle redirecting `<year>/` URL to home (or make years taxonomy entries?)
-- [ ] Add index page for `/notes/`
-
+- [WIP] Add index page for `/notes/`
+- [ ] Add "console" syntax highlighting
+	+ A lot of my examples are going to involve showing shell interactions, `bash` highlighting doesn't meet my needs.
+	+ GH uses [this](https://github.com/atom/language-shellscript/blob/cad2413dc1b0b61f75f49dfae9e52a39e519f43d/grammars/shell-session.cson)
+	+ [Set of grammars used by Linguist](https://github.com/github/linguist/tree/master/vendor/grammars)
+	+ Context is `text.shell-session`
+	+ [`ShellSession`](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml#L5321)
+	+ [Zola sort_by source](https://github.com/getzola/zola/blob/1ef8c85f53b4988fdafc0e6271cce590515d55aa/components/library/src/library.rs)
 
 Could probably use `{% set section = get_section(path="blog/_index.md") %}` to automatically set up menu pages if I wanted (or `{% set section = get_section(path="blog/_index.md", metadata_only=true) %}`). [ref](https://www.getzola.org/documentation/templates/overview/)
 

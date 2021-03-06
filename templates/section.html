@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}{{ config.title }}{% endblock %}
+
+{% block content %}
+
+<div class="pagehead">
+	<h1>{{ section.title }}</h1>
+</div>
+
+{# Haven't figure out how to sort the pages alphabetically...using the `sort` filter below doesn't work. And there's no first-class `sort_by` front matter option. You can use `weight` and if the weights are equal then the tie-breaker is alphabetical order. But then I have to include a weight on all the pages. #}
+
+<ul>
+{% for page in section.pages | sort(attribute="title") %}
+	<li><a href="{{ page.permalink }}">{{ page.title }}</a></li>
+{% endfor %}
+</ul>
+
+{% endblock content %}
