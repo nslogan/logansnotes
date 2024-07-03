@@ -26,7 +26,4 @@ menu = [
 social = [
 	{title = 'GitHub', icon = 'fab fa-github', path = 'https://github.com/nslogan/'},
 	{title = 'LinkedIn', icon = 'fab fa-linkedin-in', path = 'https://www.linkedin.com/in/logangsmith/'},
-	{title = 'Twitter', icon = 'fab fa-twitter', path = 'https://twitter.com/logangsmith'},
-	{title = 'Instagram', icon = 'fab fa-instagram', path = 'https://www.instagram.com/logangeoffsmith/'},
-	{title = 'Strava', icon = 'fab fa-strava', path = 'https://www.strava.com/athletes/31027767'},
 ]

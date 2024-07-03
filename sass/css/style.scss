@@ -6,9 +6,10 @@
 }
 
 table.archive-list tr td:first-child {
-	padding-right: 8px;
+	padding-right: 16px; /* TODO: Replace with non-px spacer value */
 	white-space: nowrap;
 	vertical-align: top;
+	text-align: right;
 }
 
 table.archive-list tr td {

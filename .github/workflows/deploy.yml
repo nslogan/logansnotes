@@ -8,26 +8,46 @@ on:
   push:
     branches: [ master ]
 
+# NOTE: Will likely split the 'build' step out at some point and allow builds to
+# happen on branches (possibly pushing artifacts somewhere I can view them)
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     
     - name: Install zola
       run: sudo snap install --edge zola
     # NOTE: Maybe run `zola --version` for posterity
 
+    # TODO: Pull from environment
     - name: Build the site
       run: zola build
 
-    - name: Deploy using rsync
-      uses: easingthemes/ssh-deploy@v2.1.1
-      env:
-          SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
-          # Updates are based on file hash, not time + size
-          ARGS: "-rlgoDzvc -i --delete --exclude-from=.rsync.rules"
-          SOURCE: "public/"
-          REMOTE_HOST: ${{ secrets.DEPLOY_HOST }}
-          REMOTE_USER: ${{ secrets.DEPLOY_USER }}
-          TARGET: ${{ secrets.DEPLOY_PATH }}
+    # Upload artifact for use in 'deploy' job; use most recent release tag as of
+    # this deploy.yml modification
+    - uses: actions/upload-pages-artifact@v3
+      with:
+        path: public
+
+  # Deploy job
+  deploy:
+    # Add a dependency to the build job
+    needs: build
+
+    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
+    permissions:
+      pages: write      # To deploy to Pages
+      id-token: write   # To verify the deployment originates from an appropriate source
+
+    # Deploy to the github-pages environment
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    # Specify runner + deployment step
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4 # or specific "vX.X.X" version tag for this action
