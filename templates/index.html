@@ -31,7 +31,7 @@
 <table class="archive-list">
 {% for article in paginator.pages | slice(start=1) %}
 	<tr>
-		<td>{{ article.date | date(format="%B %d, %Y") }}:</td>
+		<td>{{ article.date | date(format="%B %d, %Y") }}</td>
 		<td><a href="{{ article.permalink }}">{{ article.title }}</a></td>
 	</tr>
 {% else %}

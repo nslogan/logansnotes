@@ -1,3 +1,3 @@
 +++
-page_template = static.html
+page_template = "static.html"
 +++
